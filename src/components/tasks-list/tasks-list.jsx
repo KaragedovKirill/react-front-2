@@ -4,6 +4,7 @@ import Task from '../task/task';
 import Button from '../button';
 import TaskForm from '../task-form';
 
+import Locale from '../../locale';
 import './tasks-list.scss';
 
 const tasks = [
@@ -45,6 +46,8 @@ class TasksList extends React.Component {
   };
 
   render() {
+    const locale = Locale.tasksList;
+    
     return (
       <div className='tasks-list'>
         <TaskForm addTask={this.addTask} />
@@ -57,7 +60,7 @@ class TasksList extends React.Component {
             key={id}
           />
         ))}
-        <Button label='Выполненные' onClick={this.filterActive} />
+        <Button label={locale.buttonLabel} onClick={this.filterActive} />
       </div>
     );
   }
